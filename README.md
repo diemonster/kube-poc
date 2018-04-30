@@ -1,12 +1,13 @@
 ## Intro
 
-Instructions on installing Minikube and getting a simple guestbook app working w it
+How to install Minikube and get a simple guestbook app working w it
 
-## Prereqs
+## Instructions
 
 Run Container Transform on an ECS Task Definition
 
 - `docker run --rm -v $(pwd):/data/ micahhausler/container-transform  --input-type ecs --output-type kubernetes Guestbook.Dockerrun.aws.json > guestbook-deployment.yaml`
+- replace `name` and `app` fields with a identifier (in this case, I used `guestbook`)
 
 Install and run [Minikube](https://github.com/kubernetes/minikube) locally
 
@@ -26,3 +27,7 @@ Create a service and expose the deployment
 View the service
 
 - `minikube service guestbook`
+
+## More Info
+
+Based largely off of [Hello Minikube](https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/).
