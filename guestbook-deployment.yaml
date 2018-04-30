@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: guestbook
+    version: latest
+  name: guestbook
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: guestbook
+      version: latest
+  template:
+    metadata:
+      labels:
+        app: guestbook
+        version: latest
+    spec:
+      containers:
+      - image: quintilesims/guestbook
+        name: guestbook
+        ports:
+        - containerPort: 80
+          hostPort: 80
+          protocol: TCP
+        resources:
+          limits:
+            memory: 128Mi
